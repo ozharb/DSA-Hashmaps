@@ -72,10 +72,11 @@ class HashMap{
       this._capacity = size;
   
       this.length = 0;
+      this.deleted = 0;
       this._hashTable = [];
   
       for (const slot of oldSSlots){
-        if(slot !== undefined){
+        if(slot !== undefined && !slot.DELETED){
           this.set(slot.key, slot.value);
         }
       }
